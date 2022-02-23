@@ -1,7 +1,7 @@
 public class Deque<Item> implements Iterable<Item> {
 
    private Node first,last;
-   int n;
+   int d;
 
     private class Node {
         Item item;
@@ -12,7 +12,7 @@ public class Deque<Item> implements Iterable<Item> {
     public Deque(){
         first = null;
         last = null;
-        n = 0;
+        d = 0;
     }
 
     // is the deque empty?
@@ -26,11 +26,13 @@ public class Deque<Item> implements Iterable<Item> {
 
     // return the number of items on the deque
     public int size(){
-        return n;
+        return d;
     }
 
     // add the item to the front
-    public void addFirst(Item item)
+    public void addFirst(Item item){
+
+    }
 
     // add the item to the back
     public void addLast(Item item)
