@@ -1,3 +1,4 @@
+import java.util.Iterator;
 import java.util.NoSuchElementException;
 
 public class Deque<Item> implements Iterable<Item> {
@@ -92,10 +93,40 @@ public class Deque<Item> implements Iterable<Item> {
 
     // return an iterator over items in order from front to back
     public Iterator<Item> iterator()
+    {
+        return new hasIterator();
+    }
+    public class hasIterator implements Iterator<Item>{
+        Node temp = first;
+        public boolean hasNext(){ 
+            return temp != null; 
+        }
+        public Item next() {
+            if (!hasNext()) throw new NoSuchElementException();
+            Item item1 = temp.item;
+            temp = temp.next;
+            return item1;
+        }
+        public void remove() {
+            throw new UnsupportedOperationException(); } 
+
+    }
 
     // unit testing (required)
-    public static void main(String[] args)
+    public static void main(String[] args){
+        // Scanner scan = new Scanner(System.in);
+        Deque Deq = new Deque();
+        Deq.addFirst("apple");
+        Deq.addFirst("grape");
+        Deq.addFirst("mango");
+        // System.out.println(Deq.isEmpty());
+        // Deq.removeFirst();
+        
+        System.out.println(Deq.size());
+        System.out.println(Deq.removeFirst());
+        System.out.println(Deq.removeLast());
+        System.out.print(Deq.size());
+    }
 
 }
 
-}
